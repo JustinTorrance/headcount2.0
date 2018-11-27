@@ -24,8 +24,13 @@ export default class DistrictRepository {
     return this.stats[name.toUpperCase()]
   }
 
-  findAllMatches() {
-
-    return this.stats
+  findAllMatches(name) {
+    if (!name) {
+      return Object.values(this.stats)
+    } else if (!this.stats[name.toUpperCase()]) {
+      return []
+    } else {
+      return Object.values(this.stats[name.toUpperCase()])
+    }
   }
 }
