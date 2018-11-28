@@ -17,14 +17,14 @@ export default class DistrictRepository {
     }, {})
   }
 
-  findByName(name) {
+  findByName = name => {
     if (!name) {
       return undefined
     } 
     return this.stats[name.toUpperCase()]
   }
 
-  findAllMatches(name) {
+  findAllMatches = name => {
     if (!name) {
       return Object.values(this.stats)
     } else if (!this.stats[name.toUpperCase()]) {
