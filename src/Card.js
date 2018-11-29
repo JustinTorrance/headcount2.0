@@ -2,7 +2,6 @@ import React from 'react';
 import './styles/Card.css';
 import PropTypes from 'prop-types';
 
-
 const Card = ({location, stats}) => {
   const year = Object.keys(stats).map(year => (year))
   const value = Object.values(stats).map(value => (value))
