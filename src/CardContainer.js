@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card.js';
-import './styles/CardContainer.css'
+import './styles/CardContainer.css';
+import PropTypes from 'prop-types';
 
 
 const CardContainer = ({ findAllMatches }) => {
@@ -13,6 +14,9 @@ const CardContainer = ({ findAllMatches }) => {
   )
 }
 
+CardContainer.propTypes = {
+  findAllMatches: PropTypes.func.isRequired
+}
 
 export default CardContainer;
 
