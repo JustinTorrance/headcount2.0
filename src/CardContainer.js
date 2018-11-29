@@ -1,14 +1,15 @@
 import React from 'react';
 import Card from './Card.js';
+import './styles/CardContainer.css'
 
 
 const CardContainer = ({ findAllMatches }) => {
   const matches = findAllMatches()
   const schoolCard = matches.map(match => ( <Card {...match} /> ));
   return(
-    <div>
+    <section className='card-container'>
       { schoolCard }
-    </div>
+    </section>
   )
 }
 
