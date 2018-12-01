@@ -4,8 +4,9 @@ import './styles/CardContainer.css';
 import PropTypes from 'prop-types';
 
 
-const CardContainer = ({ findAllMatches }) => {
-  const matches = findAllMatches()
+const CardContainer = ({ findAllMatches, searchedLocation }) => {
+
+  const matches = findAllMatches(searchedLocation)
   const schoolCard = matches.map(match => ( <Card {...match} /> ));
   return(
     <section className='card-container'>
