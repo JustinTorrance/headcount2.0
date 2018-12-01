@@ -24,13 +24,28 @@ export default class DistrictRepository {
     return this.stats[name.toUpperCase()]
   }
 
-  findAllMatches = name => {
-    if (!name) {
+  findAllMatches = (searchedLocation) => {
+    typeof searchedLocation === 'string' ? searchedLocation = searchedLocation.toUpperCase() : searchedLocation = searchedLocation
+    if (!searchedLocation) {
       return Object.values(this.stats)
-    } else if (!this.stats[name.toUpperCase()]) {
-      return []
     } else {
-      return Object.values(this.stats[name.toUpperCase()])
+      const matches = Object.keys(this.stats).filter(location => {
+        return location.includes(searchedLocation)
+      })
+
+      if (matches[0] === undefined) {
+        return []
+      } else {
+        return matches.map(location => {
+          return this.stats[location]
+        })        
+      }
     }
   }
+
+  
+
 }
+
+   
+
