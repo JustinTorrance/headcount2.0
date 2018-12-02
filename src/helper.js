@@ -32,9 +32,8 @@ export default class DistrictRepository {
       const matches = Object.keys(this.stats).filter(location => {
         return location.includes(searchedLocation)
       })
-
-      if (matches[0] === undefined) {
-        return []
+      if (matches === []) {
+        return matches
       } else {
         return matches.map(location => {
           return this.stats[location]
@@ -43,7 +42,19 @@ export default class DistrictRepository {
     }
   }
 
-  
+  findAverage = () => {
+    var average = Object.values(Object.values(this.stats)[1].stats).reduce((sum, value) => {
+      var lengthOf = Object.values(Object.values(this.stats)[1].stats).length;
+      sum += value
+      return sum;
+    }, 0)/11;
+    return Math.round(average * 1000) / 1000;
+  }
+
+  compareDistrictAverages = () => {
+    // findAverage()
+  }
+
 
 }
 
