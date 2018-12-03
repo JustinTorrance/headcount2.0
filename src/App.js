@@ -19,6 +19,21 @@ class App extends Component {
     this.setState({searchedLocation: searchValue})
   }
 
+  compareAverages = () => {
+    const districtsBeingCompared = 
+      this.state.districtsBeingCompared;      
+    let district1;
+    let district2;
+
+    if (districtsBeingCompared.length === 2) {
+      district1 = districtsBeingCompared[0].location;
+      district2 = districtsBeingCompared[1].location;
+      let districtAverages = 
+        this.state.data.compareDistrictAverages(district1, district2);
+      this.setState({ districtAverages });
+    }
+  }
+
   render() {
     let { findAllMatches } = this.state.SchoolStats;
     return (
